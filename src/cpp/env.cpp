@@ -15,6 +15,10 @@
 
 #include <crux/env.hpp>
 
+#if IA_PLATFORM_WINDOWS
+#  include <Windows.h>
+#endif
+
 namespace ia::env
 {
   auto find(Ref<String> name) -> Option<String>
