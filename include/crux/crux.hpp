@@ -120,8 +120,5 @@ namespace ia
   } // namespace crux
 } // namespace ia
 
-#define IA_NODISCARD [[nodiscard]]
-#define IA_UNUSED(v) (void) (v)
-
 #define IA_B_LIKELY(v) [[likely]]
 #define IA_B_UNLIKELY(v) [[unlikely]]

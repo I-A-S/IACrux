@@ -34,9 +34,9 @@ namespace ia
       Fatal
     };
 
-    using Handler = void (*)(Level level, StringView message, StringView file, u32 line);
+    using Handler = void (*)(void *user_data, Level level, StringView message, StringView file, u32 line);
 
-    auto set_handler(Handler handler) -> void;
+    auto set_handler(Handler handler, void *user_data) -> void;
 
     auto dispatch(Level level, StringView message, Ref<std::source_location> loc = std::source_location::current())
         -> void;

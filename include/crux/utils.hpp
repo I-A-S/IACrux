@@ -110,7 +110,7 @@ namespace ia
   template<> struct ankerl::unordered_dense::hash<Type>                                                                \
   {                                                                                                                    \
     using is_avalanching = void;                                                                                       \
-    IA_NODISCARD                                                                                                       \
+    [[nodiscard]]                                                                                                      \
     auto operator()(ia::Ref<Type> v) const noexcept -> ia::u64                                                         \
     {                                                                                                                  \
       return ia::utils::compute_hash_flat(v, __VA_ARGS__);                                                             \

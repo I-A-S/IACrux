@@ -23,8 +23,10 @@ namespace ia::logger
   {
     Mut<std::mutex> g_console_mutex;
 
-    void default_console_handler(Level level, StringView msg, StringView file, u32 line)
+    void default_console_handler(void *user_data, Level level, StringView msg, StringView file, u32 line)
     {
+      AU_UNUSED(user_data);
+
       const auto filename = std::filesystem::path(file).filename().string();
 
       const std::lock_guard lock(g_console_mutex);
@@ -65,17 +67,20 @@ namespace ia::logger
     }
 
     Mut<std::atomic<Handler>> g_active_handler{default_console_handler};
+    Mut<std::atomic<void *>> g_active_handler_user_data{nullptr};
   } // namespace
 
-  auto set_handler(Handler handler) -> void
+  auto set_handler(Handler handler, void *user_data) -> void
   {
     if (handler == nullptr)
     {
       g_active_handler.store(default_console_handler);
+      g_active_handler_user_data.store(nullptr);
     }
     else
     {
       g_active_handler.store(handler);
+      g_active_handler_user_data.store(user_data);
     }
   }
 
@@ -83,6 +88,6 @@ namespace ia::logger
   {
     const auto handler = g_active_handler.load(std::memory_order_relaxed);
     if (handler)
-      handler(level, message, loc.file_name(), loc.line());
+      handler(g_active_handler_user_data.load(), level, message, loc.file_name(), loc.line());
   }
 } // namespace ia::logger
