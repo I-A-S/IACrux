@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.28 FATAL_ERROR)
 
 project(IACrux LANGUAGES C CXX)
+enable_testing()
 
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     set(IACRUX_IS_TOP_LEVEL ON)
