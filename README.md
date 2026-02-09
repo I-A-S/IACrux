@@ -49,7 +49,7 @@ A callback-based logging system using std::source_location for automatic file/li
 ### **4. Platform & Utils (`platform.hpp`, `utils.hpp`)**
 
 * **Hardware Detection:** Runtime detection of *AVX2*, *CRC32 hardware* instructions, and CPU topology.  
-* **Hashing:** `FNV1a`, `xxHash`, and `CRC32` implementations.  
+* **Hashing:** `FNV1a`, `xxHash`, and hardware `CRC32` implementations.  
 * **Reflection-like Hashing:** The `IA_MAKE_HASHABLE` macro automatically generates `std::hash` (via `Ankerl`) specializations for custom structs.
 
 ## **Usage Examples**
