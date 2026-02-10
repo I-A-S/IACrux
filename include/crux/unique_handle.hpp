@@ -120,6 +120,16 @@ public:
       return &m_handle;
     }
 
+    void set_manager(ManagerT manager)
+    {
+      m_manager = manager;
+    }
+
+    ManagerT get_manager() const
+    {
+      return m_manager;
+    }
+
     void reset()
     {
       if ((m_manager != NULL) && (m_handle != InvalidValue))
