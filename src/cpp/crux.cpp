@@ -15,6 +15,7 @@
 
 #include <crux/crux.hpp>
 #include <crux/platform.hpp>
+#include <crux/unique_handle.hpp>
 
 #include <thread>
 
