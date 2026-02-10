@@ -120,5 +120,5 @@ namespace ia
   } // namespace crux
 } // namespace ia
 
-#define IA_B_LIKELY(v) [[likely]]
-#define IA_B_UNLIKELY(v) [[unlikely]]
+#define IA_B_LIKELY(v) (v) [[likely]]
+#define IA_B_UNLIKELY(v) (v) [[unlikely]]
