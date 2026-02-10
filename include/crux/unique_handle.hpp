@@ -46,11 +46,6 @@ public:
       reset();
     }
 
-    operator HandleT() const
-    {
-      return m_handle;
-    }
-
     operator const HandleT &() const
     {
       return m_handle;
@@ -108,11 +103,6 @@ public:
     ~UniqueDependentHandle()
     {
       reset();
-    }
-
-    operator HandleT() const
-    {
-      return m_handle;
     }
 
     operator const HandleT &() const
