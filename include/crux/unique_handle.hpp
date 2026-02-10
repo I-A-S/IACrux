@@ -122,13 +122,13 @@ public:
 
     void reset()
     {
-      if ((m_manager != InvalidValue) && (m_handle != InvalidValue))
+      if ((m_manager != NULL) && (m_handle != InvalidValue))
         DestructorT(m_manager, m_handle);
       m_handle = InvalidValue;
     }
 
 private:
-    ManagerT m_manager{};
+    ManagerT m_manager{NULL};
     HandleT m_handle{InvalidValue};
   };
 } // namespace ia
