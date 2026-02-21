@@ -1,3 +1,6 @@
+> [!WARNING]
+> Retired in favour of [Auxid](https://github.com/I-A-S/Auxid)!
+
 # IACrux (Independent Architecture Crux)
 
 <div align="center">
